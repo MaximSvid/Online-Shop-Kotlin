@@ -22,7 +22,7 @@ class StartFragment : Fragment() {
         return binding.root
     }
 
-
+//test
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
