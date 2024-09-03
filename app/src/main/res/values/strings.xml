@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Online Shop Project Kotlin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_started_button">Let’s Get Started</string>
+
+    <string name="intro_title">Welcome to <font color="#50B498"> Online Shop</font>\n  a <font color="#50B498"> OnlyTech</font> </string>
+    <string name="sign_in">Already have an account? <font color="#50B498"> Sign in</font> </string>
+    <string name="intro_sub_title">Use the latest technology, update your style. \n
+Enjoy fast, free shipping</string>
 </resources>
