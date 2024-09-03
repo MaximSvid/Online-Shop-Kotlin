@@ -1,6 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+
+//    //navigation
+//    id("androidx.navigation.safeargs.kotlin")
+//    id("com.google.devtools.ksp")
+//    //database Firebase
+//    id("com.google.gms.google-services")
 }
 
 android {
@@ -46,7 +52,22 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    val nav_version = "2.7.7"
+    // Views/Fragments integration
+    implementation("androidx.navigation:navigation-fragment:$nav_version")
+    implementation("androidx.navigation:navigation-ui:$nav_version")
+
+    // Feature module support for Fragments
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+
+    // Testing Navigation
+    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+
 }
