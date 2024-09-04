@@ -8,4 +8,7 @@
     <string name="sign_in">Already have an account? <font color="#50B498"> Sign in</font> </string>
     <string name="intro_sub_title">Use the latest technology, update your style. \n
 Enjoy fast, free shipping</string>
+    <string name="name">Name</string>
+    <string name="welcome">Welcome</string>
+    <string name="see_all">See all</string>
 </resources>

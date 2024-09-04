@@ -69,4 +69,8 @@ dependencies {
     // Testing Navigation
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 
+    //Pager Dots Indicator
+    implementation("com.tbuonomo:dotsindicator:5.0")
+
+
 }
