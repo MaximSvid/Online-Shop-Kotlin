@@ -3,10 +3,9 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
 
 //    //navigation
-//    id("androidx.navigation.safeargs.kotlin")
-//    id("com.google.devtools.ksp")
-//    //database Firebase
-//    id("com.google.gms.google-services")
+    id("androidx.navigation.safeargs.kotlin")
+
+
 }
 
 android {
