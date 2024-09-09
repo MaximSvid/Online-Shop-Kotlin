@@ -11,4 +11,8 @@ Enjoy fast, free shipping</string>
     <string name="name">Name</string>
     <string name="welcome">Welcome</string>
     <string name="see_all">See all</string>
+    <string name="profile">Profile</string>
+    <string name="order">Order</string>
+    <string name="favorite">Favorite</string>
+    <string name="cart">Cart</string>
 </resources>

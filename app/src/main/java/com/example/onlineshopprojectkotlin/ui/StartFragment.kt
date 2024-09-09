@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.onlineshopprojectkotlin.R
 import com.example.onlineshopprojectkotlin.databinding.FragmentStartBinding
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class StartFragment : Fragment() {
 
@@ -29,7 +32,15 @@ class StartFragment : Fragment() {
 
         binding.btnStart.setOnClickListener {
             findNavController().navigate(StartFragmentDirections.actionStartFragmentToHomeFragment())
+            test()
         }
+    }
+
+    private fun test () {
+        val database = FirebaseDatabase.getInstance("https://online-shop-project-kotlin-default-rtdb.europe-west1.firebasedatabase.app")
+        val myRef = database.getReference("contacts")
+
+        myRef.setValue("Hello, World!")
     }
 
 }
