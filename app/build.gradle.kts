@@ -88,6 +88,9 @@ dependencies {
     implementation("com.squareup.moshi:moshi:1.15.1")
     implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
 
+    //Coli (image)
+    implementation("io.coil-kt:coil:2.7.0")
+
 
     // KSP for Moshi code generation
 //    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.1")

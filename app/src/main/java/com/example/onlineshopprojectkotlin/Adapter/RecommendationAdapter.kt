@@ -3,10 +3,12 @@ package com.example.onlineshopprojectkotlin.Adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.example.onlineshopprojectkotlin.Model.Products
 import com.example.onlineshopprojectkotlin.databinding.ItemViewholderRecommendedBinding
 
 class RecommendationAdapter (
-    private val recommendationList: List<*>
+    private val productsList: List<Products>
 ) : RecyclerView.Adapter<RecommendationAdapter.ItemViewHolder>(){
 
     inner class ItemViewHolder (val binding: ItemViewholderRecommendedBinding): RecyclerView.ViewHolder(binding.root)
@@ -19,10 +21,18 @@ class RecommendationAdapter (
     }
 
     override fun onBindViewHolder(holder: RecommendationAdapter.ItemViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val product = productsList[position]
+        val binding = holder.binding
+
+        binding.tvTitle.text = product.title.toString()
+        binding.tvIdNumber.text = product.id.toString()
+        binding.tvPrice.text = product.price.toString()
+
+        val imageUrl = product.image
+        binding.ivRecommended.load(imageUrl)
     }
 
     override fun getItemCount(): Int {
-       return recommendationList.size
+       return productsList.size
     }
 }
