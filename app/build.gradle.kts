@@ -6,6 +6,8 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     alias(libs.plugins.google.gms.google.services)
 
+    //Moshi
+    id("com.google.devtools.ksp").version("1.6.10-1.0.4") apply false
 
 }
 
@@ -74,5 +76,18 @@ dependencies {
     //Pager Dots Indicator
     implementation("com.tbuonomo:dotsindicator:5.0")
 
+    //Logging-interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+
+    //Moshi
+    implementation("com.squareup.moshi:moshi:1.15.1")
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
+    //Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+
+    // KSP for Moshi code generation
+//    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.1")
 
 }

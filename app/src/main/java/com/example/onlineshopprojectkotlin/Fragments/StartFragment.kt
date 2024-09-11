@@ -1,4 +1,4 @@
-package com.example.onlineshopprojectkotlin.ui
+package com.example.onlineshopprojectkotlin.Fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,11 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.onlineshopprojectkotlin.R
 import com.example.onlineshopprojectkotlin.databinding.FragmentStartBinding
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 
 class StartFragment : Fragment() {
 
@@ -37,10 +33,10 @@ class StartFragment : Fragment() {
     }
 
     private fun test () {
-        val database = FirebaseDatabase.getInstance("https://online-shop-project-kotlin-default-rtdb.europe-west1.firebasedatabase.app")
-        val myRef = database.getReference("contacts")
+//        val database = FirebaseDatabase.getInstance("https://online-shop-project-kotlin-default-rtdb.europe-west1.firebasedatabase.app")
+//        val myRef = database.getReference("contacts")
 
-        myRef.setValue("Hello, World!")
+//        myRef.setValue("Hello, World!")
     }
 
 }

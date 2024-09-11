@@ -1,4 +1,4 @@
-package com.example.onlineshopprojectkotlin
+package com.example.onlineshopprojectkotlin.Activity
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

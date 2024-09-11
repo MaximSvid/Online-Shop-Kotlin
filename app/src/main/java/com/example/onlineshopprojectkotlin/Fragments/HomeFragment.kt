@@ -1,4 +1,4 @@
-package com.example.onlineshopprojectkotlin.ui
+package com.example.onlineshopprojectkotlin.Fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
