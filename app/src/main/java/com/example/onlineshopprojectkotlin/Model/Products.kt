@@ -10,5 +10,8 @@ data class Products (
     val model: String,
     val color: String?,
     val category: String,
-    val discount: Int? //  kann gleich null sein
+    val discount: Int?,
+    val popular: Boolean?,
+    val onSale: Boolean?
+
 )
