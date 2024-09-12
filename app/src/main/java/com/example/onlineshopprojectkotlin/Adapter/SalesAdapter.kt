@@ -8,10 +8,10 @@ import com.example.onlineshopprojectkotlin.Model.Products
 import com.example.onlineshopprojectkotlin.databinding.ItemViewholderSalesBinding
 
 class SalesAdapter (
-    private val salesList: List<Products>
+    private val productsList: List<Products>
 ) : RecyclerView.Adapter<SalesAdapter.ItemViewHolder>(){
 
-    private val sales = salesList.filter { it.onSale == true }
+    private val sales = productsList.filter { it.onSale == true }
 
     inner class ItemViewHolder (val binding: ItemViewholderSalesBinding): RecyclerView.ViewHolder(binding.root)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SalesAdapter.ItemViewHolder {

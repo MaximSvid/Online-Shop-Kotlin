@@ -7,16 +7,22 @@ import coil.load
 import com.example.onlineshopprojectkotlin.Model.Products
 import com.example.onlineshopprojectkotlin.databinding.ItemViewholderRecommendedBinding
 
-class RecommendationAdapter (
+class RecommendationAdapter(
     private val productsList: List<Products>
-) : RecyclerView.Adapter<RecommendationAdapter.ItemViewHolder>(){
+) : RecyclerView.Adapter<RecommendationAdapter.ItemViewHolder>() {
 
-    inner class ItemViewHolder (val binding: ItemViewholderRecommendedBinding): RecyclerView.ViewHolder(binding.root)
+    inner class ItemViewHolder(val binding: ItemViewholderRecommendedBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): RecommendationAdapter.ItemViewHolder {
-        val binding = ItemViewholderRecommendedBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemViewholderRecommendedBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return ItemViewHolder(binding)
     }
 
@@ -33,6 +39,6 @@ class RecommendationAdapter (
     }
 
     override fun getItemCount(): Int {
-       return productsList.size
+        return productsList.size
     }
 }

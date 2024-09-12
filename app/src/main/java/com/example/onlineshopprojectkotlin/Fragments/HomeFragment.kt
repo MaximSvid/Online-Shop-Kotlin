@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.onlineshopprojectkotlin.Adapter.CategoriesAdapter
 import com.example.onlineshopprojectkotlin.Adapter.RecommendationAdapter
 import com.example.onlineshopprojectkotlin.Adapter.SalesAdapter
 import com.example.onlineshopprojectkotlin.ViewModel.HomeViewModel
@@ -32,13 +33,17 @@ class HomeFragment : Fragment() {
         val recyclerViewRecommendation = binding.rvRecommendation
         recyclerViewRecommendation.layoutManager = GridLayoutManager(requireContext(), 2) //TODO Dieser LayoutManager wird verwendet, um zwei RecyclerViews in einer Reihe anzuordnen
 
-        viewMode.productsList.observe(viewLifecycleOwner) {
-            binding.rvRecommendation.adapter = RecommendationAdapter(it)
-        }
+//        val recyclerViewCategory = binding.rvCategory
+//        recyclerViewCategory.layoutManager = GridLayoutManager(requireContext(), 5)
 
         viewMode.productsList.observe(viewLifecycleOwner) {
+            binding.rvRecommendation.adapter = RecommendationAdapter(it)
             binding.rvSales.adapter = SalesAdapter(it)
+            binding.rvCategory.adapter = CategoriesAdapter(it)
         }
+
+
+
     }
 
 }
