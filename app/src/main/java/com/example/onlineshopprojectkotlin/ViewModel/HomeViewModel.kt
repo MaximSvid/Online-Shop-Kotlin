@@ -24,7 +24,7 @@ class HomeViewModel: ViewModel() {
 
     fun load5Images () {
         viewModelScope.launch {
-            repository.load5Images()
+            repository.load3Images()
         }
     }
 }

@@ -24,7 +24,7 @@ class Repository () {
         }
     }
 
-    suspend fun load5Images () {
+    suspend fun load3Images () {
         try {
             val resposne = OnlineShopApi.retrofitService.load5Images()
             _limitedProductsList.postValue(resposne.products)
