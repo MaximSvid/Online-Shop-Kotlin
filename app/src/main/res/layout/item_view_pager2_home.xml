@@ -4,18 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_view_pager2"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_view_pager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:layout_margin="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/grey_background"
-        />
+        app:strokeColor="@android:color/transparent">
+
+        <ImageView
+            android:id="@+id/iv_view_pager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/grey_background"
+            />
+
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 
 
