@@ -14,6 +14,7 @@ import com.example.onlineshopprojectkotlin.Adapter.ViewPager2AdapterHome
 import com.example.onlineshopprojectkotlin.ViewModel.HomeViewModel
 import com.example.onlineshopprojectkotlin.databinding.FragmentHomeBinding
 
+
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
@@ -39,17 +40,32 @@ class HomeFragment : Fragment() {
         //inizializierung viewPager2
         val viewPager2 = binding.viewPager2Home
 
+
+
+        //ganz productsList
         viewMode.productsList.observe(viewLifecycleOwner) { products ->
             binding.rvRecommendation.adapter = RecommendationAdapter(products)
             binding.rvSales.adapter = SalesAdapter(products)
             binding.rvCategory.adapter = CategoriesAdapter(products)
 
-            viewPager2.adapter = ViewPager2AdapterHome(products)
-
 
         }
 
+        //limited productsList
+        viewMode.limitedProductsList.observe(viewLifecycleOwner) {limitedProducts ->
+            viewPager2.adapter = ViewPager2AdapterHome(limitedProducts)
 
+            //dotsIndicator inizializ
+            val dotsIndicator = binding.dotIndicator
+            if (limitedProducts.isNotEmpty()) {
+                binding.dotIndicator.visibility = View.VISIBLE
+                dotsIndicator.attachTo(viewPager2)
+            }
+        }
+
+    }
+
+    private fun load5Images () {
 
     }
 

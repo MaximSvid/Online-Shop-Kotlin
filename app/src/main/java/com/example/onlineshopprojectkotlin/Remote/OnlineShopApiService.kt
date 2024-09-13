@@ -25,6 +25,9 @@ interface OnlineShopApiService {
     @GET("products")
     suspend fun loadProducts (): ProductsResponse
 
+    @GET("products?limit=3")
+    suspend fun load5Images (): ProductsResponse
+
 }
 
 object OnlineShopApi {
