@@ -19,4 +19,8 @@ Enjoy fast, free shipping</string>
     <string name="titel">Titel</string>
     <string name="recommendation">Recommendation</string>
     <string name="sales">Sales</string>
+    <string name="audio">Audio</string>
+    <string name="gaming">Gaming</string>
+    <string name="mobile">Mobile</string>
+    <string name="tv">Tv</string>
 </resources>

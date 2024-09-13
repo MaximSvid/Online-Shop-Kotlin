@@ -33,8 +33,6 @@ class HomeFragment : Fragment() {
         val recyclerViewRecommendation = binding.rvRecommendation
         recyclerViewRecommendation.layoutManager = GridLayoutManager(requireContext(), 2) //TODO Dieser LayoutManager wird verwendet, um zwei RecyclerViews in einer Reihe anzuordnen
 
-//        val recyclerViewCategory = binding.rvCategory
-//        recyclerViewCategory.layoutManager = GridLayoutManager(requireContext(), 5)
 
         viewMode.productsList.observe(viewLifecycleOwner) {
             binding.rvRecommendation.adapter = RecommendationAdapter(it)

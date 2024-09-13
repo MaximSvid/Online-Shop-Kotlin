@@ -6,4 +6,5 @@
     <color name="primaryVariant">#468585</color>
     <color name="bottomNavigation">#9CDBA6</color>
     <color name="lightGrey">#dfe4e9</color>
+    <color name="categories">#545454</color>
 </resources>

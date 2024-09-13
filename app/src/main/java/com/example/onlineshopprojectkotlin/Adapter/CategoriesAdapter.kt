@@ -28,7 +28,7 @@ class CategoriesAdapter(
         val category = productsList[position]
         val binding = holder.binding
 
-        binding.tvCategory.text = category.category.toString()
+
     }
 
     override fun getItemCount(): Int {

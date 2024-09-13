@@ -1,6 +1,7 @@
 package com.example.onlineshopprojectkotlin.Adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -10,6 +11,7 @@ import com.example.onlineshopprojectkotlin.databinding.ItemViewholderRecommended
 class RecommendationAdapter(
     private val productsList: List<Products>
 ) : RecyclerView.Adapter<RecommendationAdapter.ItemViewHolder>() {
+
 
     inner class ItemViewHolder(val binding: ItemViewholderRecommendedBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -36,6 +38,12 @@ class RecommendationAdapter(
 
         val imageUrl = product.image
         binding.ivRecommended.load(imageUrl)
+
+        if (product.onSale == true) {
+            binding.ivSales.visibility = View.VISIBLE
+        } else {
+            binding.ivSales.visibility = View.GONE
+        }
     }
 
     override fun getItemCount(): Int {
