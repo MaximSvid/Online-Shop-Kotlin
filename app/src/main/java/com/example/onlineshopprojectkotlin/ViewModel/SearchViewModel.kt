@@ -2,19 +2,20 @@ package com.example.onlineshopprojectkotlin.ViewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.onlineshopprojectkotlin.Model.Products
 import com.example.onlineshopprojectkotlin.Repository.Repository
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class SearchViewModel: ViewModel() {
 
     private val repository = Repository()
     val productsList = repository.productsList
-    val limitedProductsList = repository.limitedProductsList
+
 
     init {
         loadProducts()
-        load3Images()
     }
+
 
     fun loadProducts() {
         viewModelScope.launch {
@@ -22,11 +23,13 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun load3Images() {
+    fun searchProduct (query: String) {
         viewModelScope.launch {
-            repository.load3Images()
+            repository.searchProduct(query)
         }
     }
 
-
+    fun resetProductsList () {
+        repository.resetProducts()
+    }
 }

@@ -12,7 +12,11 @@ class Repository () {
     val productsList: LiveData<List<Products>> = _productsList
 
     private val _limitedProductsList = MutableLiveData<List<Products>>()
-    val limetedProductsList: LiveData<List<Products>> = _limitedProductsList
+    val limitedProductsList: LiveData<List<Products>> = _limitedProductsList
+
+    private var allProductsList = listOf<Products>()  // Храним полный список для сброса
+
+
 
     suspend fun loadProducts () {
         try {
@@ -28,9 +32,21 @@ class Repository () {
         try {
             val resposne = OnlineShopApi.retrofitService.load5Images()
             _limitedProductsList.postValue(resposne.products)
-            Log.i("RepositoryLog", "fun load5Images done")
+            Log.i("RepositoryLog", "fun load3Images done")
         } catch (e:Exception) {
-            Log.e("RepositoryLog", "load5Images ${e.message.toString()}")
+            Log.e("RepositoryLog", "load3Images ${e.message.toString()}")
         }
+    }
+
+    fun searchProduct(query: String) {
+        val currentProduct = productsList.value ?: emptyList()
+        val filteredProduct = currentProduct.filter {
+            it.title.contains(query, ignoreCase = true)
+        }
+        _productsList.postValue(filteredProduct)
+    }
+
+    fun resetProducts () {
+        _productsList.postValue(allProductsList)
     }
 }

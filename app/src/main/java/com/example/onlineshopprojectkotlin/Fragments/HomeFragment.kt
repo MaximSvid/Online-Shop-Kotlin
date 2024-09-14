@@ -1,11 +1,15 @@
 package com.example.onlineshopprojectkotlin.Fragments
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.onlineshopprojectkotlin.Adapter.CategoriesAdapter
 import com.example.onlineshopprojectkotlin.Adapter.RecommendationAdapter
@@ -37,8 +41,7 @@ class HomeFragment : Fragment() {
         val recyclerViewRecommendation = binding.rvRecommendation
         recyclerViewRecommendation.layoutManager = GridLayoutManager(requireContext(), 2) //TODO Dieser LayoutManager wird verwendet, um zwei RecyclerViews in einer Reihe anzuordnen
 
-        //inizializierung viewPager2
-        val viewPager2 = binding.viewPager2Home
+
 
 
 
@@ -53,20 +56,28 @@ class HomeFragment : Fragment() {
 
         //limited productsList
         viewMode.limitedProductsList.observe(viewLifecycleOwner) {limitedProducts ->
-            viewPager2.adapter = ViewPager2AdapterHome(limitedProducts)
+            binding.viewPager2Home.adapter = ViewPager2AdapterHome(limitedProducts)
 
-            //dotsIndicator inizializ
+            //dotsIndicator inizializierung
             val dotsIndicator = binding.dotIndicator
             if (limitedProducts.isNotEmpty()) {
                 binding.dotIndicator.visibility = View.VISIBLE
-                dotsIndicator.attachTo(viewPager2)
+                dotsIndicator.attachTo(binding.viewPager2Home)
             }
         }
 
+        binding.apply {
+            ivSearch.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+            }
+        }
+
+
+
     }
 
-    private fun load5Images () {
 
-    }
+
+
 
 }
