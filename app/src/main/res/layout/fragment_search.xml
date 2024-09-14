@@ -7,13 +7,7 @@
     tools:context=".Fragments.SearchFragment">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical">
+
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/sv_search"
@@ -25,17 +19,23 @@
             android:layout_marginTop="12dp"
             android:padding="8dp"
             app:queryHint="Search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:visibility="visible"
             android:textColor="@color/black"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_search"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
             tools:listitem="@layout/item_viewholder_search"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sv_search"
             />
 
 <!--        <ProgressBar-->
@@ -50,7 +50,7 @@
 <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
 
-    </LinearLayout>
+
 
 
 

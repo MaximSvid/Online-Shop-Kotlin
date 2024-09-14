@@ -10,7 +10,7 @@ import com.example.onlineshopprojectkotlin.databinding.ItemViewholderSalesBindin
 import com.example.onlineshopprojectkotlin.databinding.ItemViewholderSearchBinding
 
 class SearchAdapter (
-    private val productList: List<Products>
+    private var productList: List<Products>
 ) : RecyclerView.Adapter<SearchAdapter.ItemViewHolder>(){
 
     inner class ItemViewHolder(val binding: ItemViewholderSearchBinding):RecyclerView.ViewHolder(binding.root)
@@ -42,6 +42,11 @@ class SearchAdapter (
 
     override fun getItemCount(): Int {
         return productList.size
+    }
+
+    fun updateAdapter(newList: List<Products>) {
+        productList = newList
+        notifyDataSetChanged()
     }
 
 }

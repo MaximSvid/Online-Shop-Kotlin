@@ -18,6 +18,7 @@ class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
     private val viewModel: SearchViewModel by activityViewModels()
+    private lateinit var searchAdapter: SearchAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +31,11 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.productsList.observe(viewLifecycleOwner) {
-            binding.rvSearch.adapter = SearchAdapter(it)
+        searchAdapter = SearchAdapter(mutableListOf())
+        binding.rvSearch.adapter = searchAdapter
+
+        viewModel.productsList.observe(viewLifecycleOwner) { products ->
+            searchAdapter.updateAdapter(products)
         }
 
         val searchView = binding.svSearch
@@ -42,7 +46,7 @@ class SearchFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                viewModel.searchProduct(newText!!)
+                viewModel.searchProduct(newText ?: "")
                 return true
             }
         })

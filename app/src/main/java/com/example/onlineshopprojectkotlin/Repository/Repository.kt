@@ -22,6 +22,7 @@ class Repository () {
     suspend fun loadProducts () {
         try {
             val response = OnlineShopApi.retrofitService.loadProducts()
+            allProductsList = response.products  // Сохраняем полный список продуктов
             _productsList.postValue(response.products)
             Log.i("RepositoryLog", "fun loadProducts done")
         } catch (e: Exception) {
@@ -40,11 +41,15 @@ class Repository () {
     }
 
     fun searchProduct(query: String) {
-        val currentProduct = productsList.value ?: emptyList()
-        val filteredProduct = currentProduct.filter {
-            it.title.contains(query, ignoreCase = true)
+        if (query.isNotEmpty()) {
+            val filteredProducts = allProductsList.filter {
+                it.title.contains(query, ignoreCase = true)
+            }
+            _productsList.postValue(filteredProducts)
+        } else {
+            // Если строка поиска пустая, показываем полный список
+            _productsList.postValue(allProductsList)
         }
-        _productsList.postValue(filteredProduct)
     }
 
     fun resetProducts () {
