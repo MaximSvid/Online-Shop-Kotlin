@@ -14,6 +14,7 @@ class Repository () {
     private val _limitedProductsList = MutableLiveData<List<Products>>()
     val limitedProductsList: LiveData<List<Products>> = _limitedProductsList
 
+
     private var allProductsList = listOf<Products>()  // Храним полный список для сброса
 
 

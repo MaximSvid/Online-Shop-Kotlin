@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.onlineshopprojectkotlin.Adapter.SearchAdapter
@@ -16,7 +17,6 @@ import com.example.onlineshopprojectkotlin.databinding.FragmentSearchBinding
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
-    private lateinit var searchAdapter: SearchAdapter
     private val viewModel: SearchViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -30,35 +30,21 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        searchAdapter = SearchAdapter(mutableListOf())
-        binding.rvSearch.adapter = searchAdapter
-
-
-
         viewModel.productsList.observe(viewLifecycleOwner) {
-            searchAdapter.updateAdapter(it)
+            binding.rvSearch.adapter = SearchAdapter(it)
         }
 
+        val searchView = binding.svSearch
 
-        binding.etSearch.addTextChangedListener (object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
             }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.searchProduct(newText!!)
+                return true
             }
-
-            override fun afterTextChanged(s: Editable?) {
-                val query = s.toString()
-                if (query.isEmpty()) {
-                    viewModel.resetProductsList()
-                } else {
-                    viewModel.searchProduct(s.toString())
-                }
-
-            }
-
         })
 
 
