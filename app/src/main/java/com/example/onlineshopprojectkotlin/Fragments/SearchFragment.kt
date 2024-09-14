@@ -40,9 +40,10 @@ class SearchFragment : Fragment() {
 
         val searchView = binding.svSearch
 
+        //...
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
+                return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {

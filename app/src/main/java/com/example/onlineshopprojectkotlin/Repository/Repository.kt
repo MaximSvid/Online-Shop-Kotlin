@@ -52,7 +52,4 @@ class Repository () {
         }
     }
 
-    fun resetProducts () {
-        _productsList.postValue(allProductsList)
-    }
 }

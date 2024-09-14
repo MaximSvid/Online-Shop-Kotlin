@@ -29,7 +29,4 @@ class SearchViewModel: ViewModel() {
         }
     }
 
-    fun resetProductsList () {
-        repository.resetProducts()
-    }
 }
